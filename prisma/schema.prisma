@@ -14,23 +14,23 @@ datasource db {
 }
 
 model Pet {
-  id         String    @id @default(uuid())
-  name       String
-  birthdate  DateTime
-  Location   Location? @relation(fields: [locationId], references: [id])
-  locationId String?
-  avaliable  Boolean   @default(true)
-  created_at DateTime  @default(now())
+  id          String    @id @default(uuid())
+  name        String
+  birthdate   DateTime
+  Location    Location? @relation(fields: [location_id], references: [id])
+  location_id String
+  avaliable   Boolean   @default(true)
+  created_at  DateTime  @default(now())
 
   @@map("pets")
 }
 
 model Ong {
-  id         String    @id @default(uuid())
-  name       String
-  Location   Location? @relation(fields: [locationId], references: [id])
-  locationId String?
-  created_at DateTime  @default(now())
+  id          String    @id @default(uuid())
+  name        String
+  Location    Location? @relation(fields: [location_id], references: [id])
+  location_id String
+  created_at  DateTime  @default(now())
 
   @@map("ongs")
 }
