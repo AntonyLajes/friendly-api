@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsx watch src/server.ts"
+    "start:dev": "tsx watch src/server.ts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,9 @@
     "@types/node": "^22.13.8",
     "prisma": "^6.4.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.7"
   },
   "dependencies": {
     "@prisma/client": "6.4.1",
