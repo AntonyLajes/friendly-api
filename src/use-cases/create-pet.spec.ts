@@ -22,13 +22,13 @@ describe('Create Pet Use Case', () => {
         })
 
         expect(pet).toEqual(
-            expect.objectContaining({
-                pet: expect.objectContaining({
+            expect.objectContaining(
+                {
                     name: 'Scooby',
                     location_id: "12bdfdc8-de31-4433-b556-bd92b430281d",
                     "avaliable": true
-                })
-            })
+                }
+            )
         )
     })
 

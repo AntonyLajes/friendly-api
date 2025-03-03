@@ -12,4 +12,15 @@ export class PrismaPetsRepository implements PetsRepository {
         return pet
     }
 
+    async findManyByLocation(locationId: string) {
+        const pets = await prisma.pet.findMany({
+            where: {
+                location_id: locationId,
+                avaliable: true
+            }
+        })
+
+        return pets
+    }
+
 }

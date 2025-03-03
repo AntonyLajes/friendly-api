@@ -21,4 +21,10 @@ export class InMemoryPetsRepository implements PetsRepository {
         return pet
     }
 
+    async findManyByLocation(locationId: string){
+        const petsByLocation = this.items.filter((item) => item.location_id === locationId)
+    
+        return petsByLocation
+    }
+
 }

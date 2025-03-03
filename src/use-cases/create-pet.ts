@@ -7,23 +7,17 @@ interface CreatePetUseCaseRequest {
     locationId: string;
 }
 
-interface CreatePetUseCaseResponse {
-    pet: Pet
-}
-
 export class CreatePetUseCase {
     
     constructor(private petsRepository: PetsRepository){}
 
-    async handler({name, birthdate, locationId}: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
+    async handler({name, birthdate, locationId}: CreatePetUseCaseRequest) {
         const pet = await this.petsRepository.create({
             name,
             birthdate,
             location_id: locationId
         })
 
-        return {
-            pet
-        }
+        return pet
     }
 }
