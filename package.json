@@ -2,6 +2,7 @@
   "name": "friendly-api",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "test": "vitest"
