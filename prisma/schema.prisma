@@ -21,6 +21,8 @@ model Pet {
   locationId String?
   avaliable  Boolean   @default(true)
   created_at DateTime  @default(now())
+
+  @@map("pets")
 }
 
 model Ong {
@@ -29,6 +31,8 @@ model Ong {
   Location   Location? @relation(fields: [locationId], references: [id])
   locationId String?
   created_at DateTime  @default(now())
+
+  @@map("ongs")
 }
 
 model Location {
@@ -38,4 +42,6 @@ model Location {
 
   pets Pet[]
   ongs Ong[]
+
+  @@map("locations")
 }
