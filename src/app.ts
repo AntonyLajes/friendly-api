@@ -2,11 +2,16 @@ import fastify from "fastify"
 import { petsRoutes } from "./http/controllers/pets/routes"
 import { ZodError } from "zod"
 import { env } from "./src"
+import { ongsRoutes } from "./http/controllers/ongs/routes"
 
 export const app = fastify()
 
 app.register(petsRoutes, {
     prefix: '/pets'
+})
+
+app.register(ongsRoutes, {
+    prefix: '/ongs'
 })
 
 app.setErrorHandler((error, _, reply) => {
