@@ -23,7 +23,7 @@ export class InMemoryPetsRepository implements PetsRepository {
         return pet
     }
 
-    async findMany({locationId, breed, color}: FindManyRequest): Promise<Pet[]> {
+    async findMany({locationId, breed, color}: FindManyRequest) {
         const petsByLocation = this.items.filter(
             (item) => 
                 item.location_id === locationId 
@@ -32,6 +32,12 @@ export class InMemoryPetsRepository implements PetsRepository {
         )
     
         return petsByLocation
+    }
+
+    async findById(id: string) {
+        const pet = this.items.find((item) => item.id === id)
+
+        return pet
     }
 
 }

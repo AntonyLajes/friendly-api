@@ -13,7 +13,7 @@ describe('Create Pet Use Case', () => {
         createPetUseCase = new CreatePetUseCase(petsRepository)
     })
 
-    it.only('should be able to create a pet', async () => {
+    it('should be able to create a pet', async () => {
 
         const pet = await createPetUseCase.handler({
             name: 'Scooby',

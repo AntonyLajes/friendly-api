@@ -8,5 +8,6 @@ export interface FindManyRequest {
 
 export interface PetsRepository {
     create(data: Prisma.PetUncheckedCreateInput): Promise<Pet>
+    findById(id: string): Promise<Pet | undefined | null>
     findMany(data: FindManyRequest): Promise<Pet[]>
 }
