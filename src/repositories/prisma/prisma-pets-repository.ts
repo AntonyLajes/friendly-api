@@ -12,10 +12,6 @@ export class PrismaPetsRepository implements PetsRepository {
         return pet
     }
 
-     findManyByLocation(locationId: string) {
-        
-    }
-
     async findMany({locationId, color, breed}: FindManyRequest){
         const pets = await prisma.pet.findMany({
             where: {

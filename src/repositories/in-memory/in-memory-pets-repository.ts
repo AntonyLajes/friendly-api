@@ -12,6 +12,7 @@ export class InMemoryPetsRepository implements PetsRepository {
             name: data.name,
             birthdate: new Date(data.birthdate),
             location_id: data.location_id,
+            ong_id: data.ong_id,
             avaliable: true,
             created_at: new Date(),
             color: data.color ?? null,

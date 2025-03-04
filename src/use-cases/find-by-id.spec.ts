@@ -21,6 +21,7 @@ describe('Find by Id Use Case', () => {
             name: 'Scooby',
             birthdate: '2025-02-17T00:00:00.000Z',
             location_id: '12bdfdc8-de31-4433-b556-bd92b430281d',
+            ong_id: 'ad389d12-50c2-4045-aa2d-3c4df48e4282',
             color: 'brown',
             breed: 'mixed'
         })

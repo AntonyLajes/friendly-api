@@ -17,14 +17,16 @@ describe('Fetch Avaliable Pets by Location Use Case', () => {
         await petsRepository.create({
             name: `Pet 0`,
             birthdate: new Date(2025, 1, 11),
-            location_id: '84cf7875-7633-4144-a9c8-42e3720e00f3'
+            location_id: '84cf7875-7633-4144-a9c8-42e3720e00f3',
+            ong_id: 'ad389d12-50c2-4045-aa2d-3c4df48e4282',
         })
         
         for(let i = 1; i < 4; i++) {
             await petsRepository.create({
                 name: `Pet ${i}`,
                 birthdate: new Date(2025, 1, 15),
-                location_id: '12bdfdc8-de31-4433-b556-bd92b430281d'
+                location_id: '12bdfdc8-de31-4433-b556-bd92b430281d',
+                ong_id: 'ad389d12-50c2-4045-aa2d-3c4df48e4282',
             })
         }
 

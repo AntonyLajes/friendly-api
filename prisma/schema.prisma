@@ -19,6 +19,8 @@ model Pet {
   birthdate   DateTime
   Location    Location? @relation(fields: [location_id], references: [id])
   location_id String
+  Ong         Ong       @relation(fields: [ong_id], references: [id])
+  ong_id      String
   avaliable   Boolean   @default(true)
   color       String?
   breed       String?
@@ -28,11 +30,13 @@ model Pet {
 }
 
 model Ong {
-  id          String    @id @default(uuid())
+  id          String   @id @default(uuid())
   name        String
-  Location    Location? @relation(fields: [location_id], references: [id])
+  Location    Location @relation(fields: [location_id], references: [id])
   location_id String
-  created_at  DateTime  @default(now())
+  created_at  DateTime @default(now())
+
+  pets Pet[]
 
   @@map("ongs")
 }

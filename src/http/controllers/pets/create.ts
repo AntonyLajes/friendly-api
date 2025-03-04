@@ -8,11 +8,12 @@ export async function create(request: FastifyRequest, reply: FastifyReply){
         name: z.string(),
         birthdate: z.string().datetime(),
         locationId: z.string().uuid(),
+        ongId: z.string().uuid(),
         color: z.string().optional().nullable().default(null),
         breed: z.string().optional().nullable().default(null),
     })
 
-    const { name, birthdate, locationId,color, breed } = createPetBodySchema.parse(request.body)
+    const { name, birthdate, locationId, ongId, color, breed } = createPetBodySchema.parse(request.body)
 
     try {
         const createPetUseCase = makeCreatePetUseCase()
@@ -20,6 +21,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply){
             name,
             birthdate,
             locationId,
+            ongId,
             color, 
             breed
         })
