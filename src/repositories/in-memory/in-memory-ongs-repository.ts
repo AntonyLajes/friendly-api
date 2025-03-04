@@ -23,4 +23,10 @@ export class InMemoryOngsRepository implements OngsRepository {
         return ong
     }
 
+    async findByEmail(email: string) {
+        const ong = this.items.find((item) => item.email === email)
+
+        return ong
+    }
+
 }

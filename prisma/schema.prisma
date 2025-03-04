@@ -37,7 +37,7 @@ model Ong {
   created_at   DateTime @default(now())
   address      String
   phone_number String
-  email        String
+  email        String   @unique
   password     String
 
   pets Pet[]

@@ -12,4 +12,14 @@ export class PrismaOngsRepository implements OngsRepository {
         return ong
     }
 
+    async findByEmail(email: string) {
+        const ong = await prisma.ong.findUnique({
+            where: {
+                email
+            }
+        })
+
+        return ong
+    }
+
 }

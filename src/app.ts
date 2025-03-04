@@ -1,10 +1,15 @@
 import fastify from "fastify"
 import { petsRoutes } from "./http/controllers/pets/routes"
 import { ZodError } from "zod"
-import { env } from "./src"
+import { env } from "./env"
 import { ongsRoutes } from "./http/controllers/ongs/routes"
+import fastifyJwt from "@fastify/jwt"
 
 export const app = fastify()
+
+app.register(fastifyJwt, {
+    secret: env.JWT_SECRET
+})
 
 app.register(petsRoutes, {
     prefix: '/pets'
