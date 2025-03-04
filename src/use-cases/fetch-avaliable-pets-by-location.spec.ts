@@ -29,7 +29,9 @@ describe('Fetch Avaliable Pets by Location Use Case', () => {
         }
 
         const petsByLocation = await sut.handler({
-            locationId: '12bdfdc8-de31-4433-b556-bd92b430281d'
+            locationId: '12bdfdc8-de31-4433-b556-bd92b430281d',
+            color: null,
+            breed: null
         })
 
         expect(petsByLocation).toHaveLength(3)

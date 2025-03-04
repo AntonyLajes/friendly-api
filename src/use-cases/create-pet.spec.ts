@@ -13,12 +13,14 @@ describe('Create Pet Use Case', () => {
         createPetUseCase = new CreatePetUseCase(petsRepository)
     })
 
-    it('should be able to create a pet', async () => {
+    it.only('should be able to create a pet', async () => {
 
         const pet = await createPetUseCase.handler({
             name: 'Scooby',
             birthdate: '2025-02-17T00:00:00.000Z',
-            locationId: '12bdfdc8-de31-4433-b556-bd92b430281d'
+            locationId: '12bdfdc8-de31-4433-b556-bd92b430281d',
+            color: 'brown',
+            breed: 'mixed'
         })
 
         expect(pet).toEqual(
@@ -26,7 +28,9 @@ describe('Create Pet Use Case', () => {
                 {
                     name: 'Scooby',
                     location_id: "12bdfdc8-de31-4433-b556-bd92b430281d",
-                    "avaliable": true
+                    avaliable: true,
+                    color: 'brown',
+                    breed: 'mixed'
                 }
             )
         )

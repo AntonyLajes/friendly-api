@@ -1,5 +1,5 @@
 import { Prisma, Pet } from "@prisma/client";
-import { PetsRepository } from "../pets-repository";
+import { FindManyRequest, PetsRepository } from "../pets-repository";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryPetsRepository implements PetsRepository {
@@ -13,7 +13,9 @@ export class InMemoryPetsRepository implements PetsRepository {
             birthdate: new Date(data.birthdate),
             location_id: data.location_id,
             avaliable: true,
-            created_at: new Date()
+            created_at: new Date(),
+            color: data.color ?? null,
+            breed: data.breed ?? null
         }
 
         this.items.push(pet)
@@ -21,8 +23,13 @@ export class InMemoryPetsRepository implements PetsRepository {
         return pet
     }
 
-    async findManyByLocation(locationId: string){
-        const petsByLocation = this.items.filter((item) => item.location_id === locationId)
+    async findMany({locationId, breed, color}: FindManyRequest): Promise<Pet[]> {
+        const petsByLocation = this.items.filter(
+            (item) => 
+                item.location_id === locationId 
+                && item.breed === breed 
+                && item.color === color
+        )
     
         return petsByLocation
     }

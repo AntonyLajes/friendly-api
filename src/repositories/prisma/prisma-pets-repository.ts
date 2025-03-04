@@ -1,5 +1,5 @@
 import { Prisma, Pet } from "@prisma/client";
-import { PetsRepository } from "../pets-repository";
+import { FindManyRequest, PetsRepository } from "../pets-repository";
 import { prisma } from "@/lib/prisma";
 
 export class PrismaPetsRepository implements PetsRepository {
@@ -12,11 +12,17 @@ export class PrismaPetsRepository implements PetsRepository {
         return pet
     }
 
-    async findManyByLocation(locationId: string) {
+     findManyByLocation(locationId: string) {
+        
+    }
+
+    async findMany({locationId, color, breed}: FindManyRequest){
         const pets = await prisma.pet.findMany({
             where: {
                 location_id: locationId,
-                avaliable: true
+                avaliable: true,
+                color,
+                breed
             }
         })
 
