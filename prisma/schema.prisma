@@ -20,6 +20,8 @@ model Pet {
   Location    Location? @relation(fields: [location_id], references: [id])
   location_id String
   avaliable   Boolean   @default(true)
+  color       String?
+  breed       String?
   created_at  DateTime  @default(now())
 
   @@map("pets")
