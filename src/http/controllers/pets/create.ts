@@ -26,7 +26,9 @@ export async function create(request: FastifyRequest, reply: FastifyReply){
             breed
         })
 
-        reply.status(201).send(pet)
+        reply.status(201).send({
+            pet
+        })
     } catch (error) {
         console.log(error)
         reply.status(409).send()

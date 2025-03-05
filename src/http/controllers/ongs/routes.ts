@@ -6,13 +6,8 @@ import { refresh } from "./refresh";
 
 export function ongsRoutes(app: FastifyInstance){
 
+    app.post('/', create)
     app.post('/authenticate',authenticate)
-
     app.patch('/token/refresh', refresh)
-
-    /* Protected Routes */
-    app.post('/', {
-        onRequest: [verifyJwt]
-    }, create)
-
+    
 }
