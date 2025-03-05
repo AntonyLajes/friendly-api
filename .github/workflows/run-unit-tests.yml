@@ -16,3 +16,6 @@ jobs:
 
       - run: npm ci
       - num: npm run test
+        env:
+          JWT_SECRET: testing
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/solidapi?schema=public"
