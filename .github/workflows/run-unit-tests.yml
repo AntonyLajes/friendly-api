@@ -13,9 +13,8 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-
       - run: npm ci
-      - num: npm run test
+      - rum: npm run test
         env:
           JWT_SECRET: testing
           DATABASE_URL: "postgresql://docker:docker@localhost:5432/solidapi?schema=public"
